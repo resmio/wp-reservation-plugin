@@ -1,0 +1,91 @@
+.settings_page_resmio_btn_wdgt_page #wpfooter {
+	display: none;
+}
+/** ON/OFF Switch **/
+.cb-enable, .cb-disable, .cb-enable span, .cb-disable span {
+    background: url("../img/switch.gif") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+    display: block;
+    float: left;
+}
+.cb-enable span, .cb-disable span {
+    background-repeat: no-repeat;
+    display: block;
+    font-weight: bold;
+    line-height: 30px;
+}
+.cb-enable span {
+    background-position: left -90px;
+    padding: 0 10px;
+}
+.cb-disable span {
+    background-position: right -180px;
+    padding: 0 10px;
+}
+.cb-disable.selected {
+    background-position: 0 -30px;
+}
+.cb-disable.selected span {
+    background-position: right -210px;
+    color: #fff;
+}
+.cb-enable.selected {
+    background-position: 0 -60px;
+}
+.cb-enable.selected span {
+    background-position: left -150px;
+    color: #fff;
+}
+.switch {
+    line-height: 30px;
+}
+.switch label {
+    cursor: pointer;
+}
+.switch input {
+    display: none;
+}
+
+
+/** settings page **/
+.settings_page_resmio_btn_wdgt_page .resmio-main-header {
+	min-height: 34px;
+}
+.settings_page_resmio_btn_wdgt_page .resmio-main-header-h {
+	display: inline-block;
+}
+.settings_page_resmio_btn_wdgt_page .resmio-logo {
+	margin-top: 9px;
+	float: right;
+	opacity: 0.85;
+}
+.settings_page_resmio_btn_wdgt_page .resmio-logo:hover, .settings_page_resmio_btn_wdgt_page .resmio-logo:focus {
+	opacity: 1;
+}
+.settings_page_resmio_btn_wdgt_page .resmio-logo img {
+	width: 100px;
+	height: auto;
+}
+.settings_page_resmio_btn_wdgt_page .resmio-settings-head {
+	background-color: #f9f9f9;
+    border-left: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
+    border-top: 1px solid #ffffff;
+    color: #222222;
+    margin-top: 10px;
+    padding: 5px 10px 5px;
+}
+.settings_page_resmio_btn_wdgt_page .resmio-settings-head h3 {
+	margin-bottom: 0;
+    margin-top: 10px;
+}
+.settings_page_resmio_btn_wdgt_page .resmio-settings-head p {
+	margin-bottom: 0;
+    margin-top: 10px;
+}
+.settings_page_resmio_btn_wdgt_page .resmio-settings-content {
+	background-color: #ffffff;
+    padding: 5px 10px 5px;
+}
+.settings_page_resmio_btn_wdgt_page .resmio-settings-content table.form-table {
+	margin: 0;
+}
