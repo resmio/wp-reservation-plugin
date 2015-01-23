@@ -1,0 +1,157 @@
+# Loco Gettext template
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: resmio Button & Widget\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: Tue Jan 20 2015 18:54:16 GMT+0100\n"
+"POT-Revision-Date: Tue Jan 20 2015 20:31:32 GMT+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#: ../resmio-btn-wdgt.php:29
+msgid "Add a resmio button or widget to your website."
+msgstr ""
+
+#: ../resmio-btn-wdgt.php:98
+msgid "resmio button and widget settings"
+msgstr ""
+
+#: ../resmio-btn-wdgt.php:98 ../templates/settings.php:50
+msgid "resmio button and widget"
+msgstr ""
+
+#: ../resmio-btn-wdgt.php:106
+msgid "You do not have permission to access this site."
+msgstr ""
+
+#: ../resmio-btn-wdgt.php:162
+msgid "settings"
+msgstr ""
+
+#: ../templates/settings.php:56
+msgid "Please type in your resmio ID and save the settings."
+msgstr ""
+
+#: ../templates/settings.php:57 ../templates/settings.php:179
+msgid "No resmio ID yet? Sign up "
+msgstr ""
+
+#: ../templates/settings.php:57 ../templates/settings.php:179
+msgid "here"
+msgstr ""
+
+#: ../templates/settings.php:57 ../templates/settings.php:179
+msgid " for free!"
+msgstr ""
+
+#: ../templates/settings.php:79 ../templates/settings.php:85
+msgid "resmio ID*"
+msgstr ""
+
+#: ../templates/settings.php:80
+msgid "Type in your resmio ID"
+msgstr ""
+
+#: ../templates/settings.php:96
+msgid "Advanced settings"
+msgstr ""
+
+#: ../templates/settings.php:97
+msgid "Activate if you want to change button and or widget colors etc."
+msgstr ""
+
+#: ../templates/settings.php:132
+msgid "resmio button"
+msgstr ""
+
+#: ../templates/settings.php:133
+msgid "Edit the resmio button color properties."
+msgstr ""
+
+#: ../templates/settings.php:138
+msgid "Button font color"
+msgstr ""
+
+#: ../templates/settings.php:142
+msgid "Button background color"
+msgstr ""
+
+#: ../templates/settings.php:150
+msgid "resmio widget"
+msgstr ""
+
+#: ../templates/settings.php:151
+msgid "Edit the resmio widget color and width/height properties."
+msgstr ""
+
+#: ../templates/settings.php:156
+msgid "Widget font color"
+msgstr ""
+
+#: ../templates/settings.php:160
+msgid "Widget background color"
+msgstr ""
+
+#: ../templates/settings.php:164
+msgid "Widget width (in px)"
+msgstr ""
+
+#: ../templates/settings.php:168
+msgid "Widget height (in px)"
+msgstr ""
+
+#: ../templates/settings.php:178
+msgid "* = required"
+msgstr ""
+
+#: ../templates/settings.php:181
+msgid "Short description"
+msgstr ""
+
+#: ../templates/settings.php:182
+msgid ""
+"After you have saved your resmio ID you can insert the resmio button or "
+"widget on your website through shortcodes."
+msgstr ""
+
+#: ../templates/settings.php:183
+msgid ""
+"There are two ways on a post or page to put these shortcodes inside the "
+"WordPress wysiwyg-editor (text editor):"
+msgstr ""
+
+#: ../templates/settings.php:184
+msgid ""
+"1) You can type in the shortcodes manually. Type in <b>[resmio-button]</b> "
+"for the resmio button and/or <b>[resmio-widget]</b> for the resmio widget."
+msgstr ""
+
+#: ../templates/settings.php:185
+msgid ""
+"2) You insert them by clicking on the <i>resmio</i> button on the toolbar of "
+"the wysiwyg-editor (only in visual mode supported)."
+msgstr ""
+
+#: ../templates/shortcodes.php:17
+msgid "No resmio ID saved!"
+msgstr ""
+
+#: ../templates/shortcodes.php:83
+msgid "Shortcode not supported!"
+msgstr ""
