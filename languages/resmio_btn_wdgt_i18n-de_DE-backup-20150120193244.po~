@@ -1,0 +1,164 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: resmio Button & Widget\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: Tue Jan 20 2015 18:54:16 GMT+0100\n"
+"PO-Revision-Date: Tue Jan 20 2015 20:09:49 GMT+0100\n"
+"Last-Translator: resmio <philipp@resmio.com>\n"
+"Language-Team: \n"
+"Language: German\n"
+"Plural-Forms: nplurals=2; plural=n != 1\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Generator: Loco - https://localise.biz/\n"
+"X-Loco-Target-Locale: de_DE"
+
+#: ../resmio-btn-wdgt.php:98
+msgid "resmio button and widget settings"
+msgstr "resmio Button & Widget Einstellungen"
+
+#: ../resmio-btn-wdgt.php:98 ../templates/settings.php:50
+msgid "resmio button and widget"
+msgstr "resmio Button & Widget"
+
+#: ../resmio-btn-wdgt.php:106
+msgid "You do not have permission to access this site."
+msgstr "Dir fehlen leider die Benutzerrechte, damit diese Seite angezeigt werden."
+
+#: ../resmio-btn-wdgt.php:162
+msgid "settings"
+msgstr "Einstellungen"
+
+#: ../templates/settings.php:56
+msgid "Please type in your resmio ID and save the settings."
+msgstr ""
+"Bitte geben Sie Ihre resmio ID ein uns klicken Sie anschließend auf "
+"\"Änderungen übernehmen\""
+
+#: ../templates/settings.php:57 ../templates/settings.php:179
+msgid "No resmio ID yet? Sign up "
+msgstr "Sie haben noch keine resmio ID? Dann melden Sie sich ganz einfach "
+
+#: ../templates/settings.php:57 ../templates/settings.php:179
+msgid "here"
+msgstr "hier"
+
+#: ../templates/settings.php:57 ../templates/settings.php:179
+msgid " for free!"
+msgstr " kostenlos an!"
+
+#: ../templates/settings.php:79 ../templates/settings.php:85
+msgid "resmio ID*"
+msgstr "resmio ID*"
+
+#: ../templates/settings.php:80
+msgid "Type in your resmio ID"
+msgstr "Geben Sie hier Ihre resmio ID an"
+
+#: ../templates/settings.php:96
+msgid "Advanced settings"
+msgstr "Erweiterte Einstellungen"
+
+#: ../templates/settings.php:97
+msgid "Activate if you want to change button and or widget colors etc."
+msgstr "Aktivieren um Button und Widget Farben manuell einzustellen"
+
+#: ../templates/settings.php:132
+msgid "resmio button"
+msgstr "resmio Button"
+
+#: ../templates/settings.php:133
+msgid "Edit the resmio button color properties."
+msgstr "Hier können Sie die Farbe des resmio Buttons einstellen."
+
+#: ../templates/settings.php:138
+msgid "Button font color"
+msgstr "Button Textfarbe"
+
+#: ../templates/settings.php:142
+msgid "Button background color"
+msgstr "Button Hintergrundfarbe"
+
+#: ../templates/settings.php:150
+msgid "resmio widget"
+msgstr "resmio Widget"
+
+#: ../templates/settings.php:151
+msgid "Edit the resmio widget color and width/height properties."
+msgstr "Hier können Sie die Farbe und Größe des resmio Widgets einstellen."
+
+#: ../templates/settings.php:156
+msgid "Widget font color"
+msgstr "Widget Textfarbe"
+
+#: ../templates/settings.php:160
+msgid "Widget background color"
+msgstr "Widget Hintergrundfarbe"
+
+#: ../templates/settings.php:164
+msgid "Widget width (in px)"
+msgstr "Widget Breite (in px)"
+
+#: ../templates/settings.php:168
+msgid "Widget height (in px)"
+msgstr "Widget Höhe (in px)"
+
+#: ../templates/settings.php:178
+msgid "* = required"
+msgstr "* = Pflichteingabe"
+
+#: ../templates/settings.php:181
+msgid "Short description"
+msgstr "Kurzanleitung"
+
+#: ../templates/settings.php:182
+msgid ""
+"After you have saved your resmio ID you can insert the resmio button or "
+"widget on your website through shortcodes."
+msgstr ""
+"Nachdem Sie Ihre resmio ID gespeichert haben, können sie den resmio Button "
+"oder das resmio Widget durch die Eingabe von sog. Shortcodes auf Ihrer "
+"Webseite hinzufügen."
+
+#: ../templates/settings.php:183
+msgid ""
+"There are two ways on a post or page to put these shortcodes inside the "
+"WordPress wysiwyg-editor (text editor):"
+msgstr ""
+"Diese Shortcodes können ganz einfach im WYSIWYG-Editor (Texteditor) der "
+"Seite bzw. des Beitrags integriert werden. Dabei haben Sie zwei "
+"Möglichkeiten:"
+
+#: ../templates/settings.php:184
+msgid ""
+"1) You can type in the shortcodes manually. Type in <b>[resmio-button]</b> "
+"for the resmio button and/or <b>[resmio-widget]</b> for the resmio widget."
+msgstr ""
+"1) Sie fügen den Shortcode <b>[resmio-button]</b> für den resmio Button bzw. "
+"<b>[resmio-widget]</b> für das resmio Widget manuell im Editor ein."
+
+#: ../templates/settings.php:185
+msgid ""
+"2) You insert them by clicking on the <i>resmio</i> button on the toolbar of "
+"the wysiwyg-editor (only in visual mode supported)."
+msgstr ""
+"2) Sie fügen den Shortcode für den resmio Button bzw. für das resmio Widget "
+"durch einen Klick auf <i>resmio</i> in der Toolbar des Editors ein (nur im "
+"Visual-Mode des Editors)."
+
+#: ../templates/shortcodes.php:17
+msgid "No resmio ID saved!"
+msgstr "Keine resmio ID gespeichert!"
+
+#: ../templates/shortcodes.php:83
+msgid "Shortcode not supported!"
+msgstr "Shortcode-Tag nicht erkannt!"
