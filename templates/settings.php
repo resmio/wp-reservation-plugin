@@ -1,4 +1,4 @@
-<?php	
+<?php
 add_action( 'admin_enqueue_scripts', 'resmio_btn_wdgt_plugin_color_picker' );
 function resmio_btn_wdgt_plugin_color_picker( $hook_suffix ) {
     // first check that $hook_suffix is appropriate for your admin page
@@ -26,7 +26,7 @@ $resmioID = get_option('resmio_id');
 			    palettes: true
 			};
 			jQuery('.resmio-color-field').wpColorPicker(myOptions);
-			
+
 			// ON/OFF SWITCH
 			jQuery(".cb-enable").click(function(){
 		        var parent = jQuery(this).parents('.switch');
@@ -44,12 +44,12 @@ $resmioID = get_option('resmio_id');
 		    });
 		});
 	</script>
-	
+
 	<div class="resmio-main-header">
 	    <a class="resmio-logo" href="https://www.resmio.de/" target="_blank"><img src="<?php echo WP_PLUGIN_URL ?>/resmio-button-and-widget/img/resmio-logo.png" /></a>
 	    <h2 class="resmio-main-header-h"><?php _e('resmio button and widget','resmio_btn_wdgt_i18n') ?></h2>
     </div>
-    
+
     <?php
     if ($resmioID == '') {
     	echo '<div class="error fade">';
@@ -58,9 +58,9 @@ $resmioID = get_option('resmio_id');
 		echo '</div>';
     }
 	?>
-    
-    <form method="post" action="options.php"> 
-        <?php 
+
+    <form method="post" action="options.php">
+        <?php
 	        @settings_fields('resmio_btn_wdgt_plugin_group');
 	        @do_settings_fields('resmio_btn_wdgt_plugin_group');
 			$extendedSettings = get_option('resmio_extended');
@@ -72,7 +72,7 @@ $resmioID = get_option('resmio_id');
 				update_option( 'resmio_btn_bg_dark', $resmioBtnBGd );
 			}
         ?>
-		
+
 		<div class="resmio-settings">
 			<div class="resmio-settings-section">
 				<div class="resmio-settings-head">
@@ -80,7 +80,7 @@ $resmioID = get_option('resmio_id');
 					<p><?php _e('Type in your resmio ID','resmio_btn_wdgt_i18n') ?></p>
 				</div>
 				<div class="resmio-settings-content">
-			        <table class="form-table">  
+			        <table class="form-table">
 			            <tr valign="center">
 			                <th scope="row"><label for="resmio-id"><?php _e('resmio ID*','resmio_btn_wdgt_i18n') ?></label></th>
 			                <td><input type="text" name="resmio_id" id="resmio-id" value="<?php echo get_option('resmio_id'); ?>" /></td>
@@ -89,7 +89,7 @@ $resmioID = get_option('resmio_id');
 		        </div>
 	        </div>
 	        <hr>
-	        
+
 	        <div class="resmio-settings-section">
 		        <div class="resmio-settings-sub-section">
 			        <div class="resmio-settings-head">
@@ -120,7 +120,7 @@ $resmioID = get_option('resmio_id');
 								$html .= '<input type="radio" id="radio2" name="resmio_extended" value="2"' . checked( 2, $extendedSettings, false ) . '/>';
 								$html .= '&nbsp;';
 								$html .= '<label for="radio2" class="cb-disable selected"><span>Off</span></label>';
-								echo $html;	
+								echo $html;
 							}
 						    ?>
 						</p>
@@ -133,7 +133,7 @@ $resmioID = get_option('resmio_id');
 							<p><?php _e('Edit the resmio button color properties.','resmio_btn_wdgt_i18n') ?></p>
 						</div>
 						<div class="resmio-settings-content">
-							<table class="form-table">  
+							<table class="form-table">
 					            <tr valign="center">
 					                <th scope="row"><label for="resmio-btn-text"><?php _e('Button font color','resmio_btn_wdgt_i18n') ?></label></th>
 					                <td><input id="resmio-btn-text" type="text" class="resmio-color-field" data-default-color="#ffffff" name="resmio_btn_text" value="<?php echo get_option('resmio_btn_text'); ?>" /></td>
@@ -142,7 +142,7 @@ $resmioID = get_option('resmio_id');
 					                <th scope="row"><label for="resmio-btn-text"><?php _e('Button background color','resmio_btn_wdgt_i18n') ?></label></th>
 					                <td><input id="resmio-btn-bg" type="text" class="resmio-color-field" data-default-color="#000000" name="resmio_btn_bg" value="<?php echo get_option('resmio_btn_bg'); ?>" /></td>
 					            </tr>
-					        </table>	
+					        </table>
 						</div>
 					</div>
 					<div class="resmio-settings-sub-section">
@@ -151,7 +151,7 @@ $resmioID = get_option('resmio_id');
 							<p><?php _e('Edit the resmio widget color and width/height properties.','resmio_btn_wdgt_i18n') ?></p>
 						</div>
 						<div class="resmio-settings-content">
-							<table class="form-table">  
+							<table class="form-table">
 					            <tr valign="center">
 					                <th scope="row"><label for="resmio-wdgt-text"><?php _e('Widget font color','resmio_btn_wdgt_i18n') ?></label></th>
 					                <td><input id="resmio-wdgt-text" type="text" class="resmio-color-field" data-default-color="#000000" name="resmio_wdgt_text" value="<?php echo get_option('resmio_wdgt_text'); ?>" /></td>
@@ -168,12 +168,12 @@ $resmioID = get_option('resmio_id');
 					                <th scope="row"><label for="resmio-wdgt-height"><?php _e('Widget height (in px)','resmio_btn_wdgt_i18n') ?></label><p>(200 - 1200)</p></th>
 					                <td><input type="number" min="200" max="1200" step="1" name="resmio_wdgt_height" id="resmio-wdgt-height" value="<?php echo get_option('resmio_wdgt_height'); ?>" /><p>(default: 400)</p></td>
 					            </tr>
-					        </table>	
+					        </table>
 						</div>
 					</div>
 		        </div>
 	        </div>
-	        
+
 	        <hr>
 	        <p><?php _e( '* = required', 'resmio_btn_wdgt_i18n' ); ?></p>
 	        <p><strong><?php _e('No resmio ID yet? Sign up ','resmio_btn_wdgt_i18n') ?><a href="https://app.resmio.com/signup?plan=2014-11-free&recurrence=monthly&referer=online_wpplugin" target="_blank"><?php _e('here','resmio_btn_wdgt_i18n') ?></a> <?php _e(' for free!','resmio_btn_wdgt_i18n') ?></strong></p>
