@@ -3,7 +3,7 @@
 Plugin Name: resmio button & widget
 Plugin URI: https://www.resmio.com/
 Description: Add a resmio button or widget to your website.
-Version: 1.0
+Version: 1.1
 Date: 20th January 2015
 Author: Philipp Sahner
 Author URI: http://www.psahner.de/
