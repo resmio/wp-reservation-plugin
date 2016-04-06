@@ -3,7 +3,7 @@ Contributors: Philipp Sahner (resmio GmbH)
 Tags: shortcode, resmio, usability, button, widget, reservation, online, restaurant
 Requires at least: unknown
 Tested up to: 4.1
-Stable tag: 1.0
+Stable tag: 1.1
 Add a resmio button or widget to your website.
 
 == Description ==
