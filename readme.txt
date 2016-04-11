@@ -47,7 +47,7 @@ Alternatively, you can install the plugin manually through the WordPress Admin i
 
 == Changelog ==
 
-= 1.0.1 (09 February 2016) =
+= 1.1 (09 February 2016) =
 * Added Screenshots, Banner and Icon
 = 1.0 (20 January 2015) =
 * Initial Release
