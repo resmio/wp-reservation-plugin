@@ -40,7 +40,7 @@ if(!class_exists('resmio_btn_wdgt_plugin')) {
       $this->pluginPath = dirname(__FILE__);
       // Set Plugin URL
       $this->pluginUrl = WP_PLUGIN_URL . '/' . self::PLUGINDIRNAME;
-      add_action('admin_init', array(&$this, 'admin_init'));
+      add_action('admin_init', array(&$this, 'resmio_admin_init'));
       add_action('admin_menu', array(&$this, 'resmio_add_menu'));
       add_shortcode('resmio-button', array($this, 'resmio_shortcode'));
       add_shortcode('resmio-widget', array($this, 'resmio_shortcode'));
@@ -67,7 +67,7 @@ if(!class_exists('resmio_btn_wdgt_plugin')) {
     /**
     * Hook into WP's admin_init action hook
     */
-    public function admin_init() {
+    public function resmio_admin_init() {
       load_plugin_textdomain( 'resmio_btn_wdgt_i18n', false, dirname( plugin_basename( __FILE__ ) ).'/languages/' );
       // Set up the settings for this plugin
       $this->resmio_init_settings();
