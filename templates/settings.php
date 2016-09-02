@@ -66,8 +66,8 @@ $resmioID = get_option('resmio_id');
 			$extendedSettings = get_option('resmio_extended');
 			if (isset($_GET['settings-updated'])) {
 				$resmioBtnBg = get_option('resmio_btn_bg');
-				$resmioBtnBGl = adjustColorLightenDarken($resmioBtnBg, -10);
-				$resmioBtnBGd = adjustColorLightenDarken($resmioBtnBg, 10);
+				$resmioBtnBGl = resmio_adjustColorLightenDarken($resmioBtnBg, -10);
+				$resmioBtnBGd = resmio_adjustColorLightenDarken($resmioBtnBg, 10);
 				update_option( 'resmio_btn_bg_light', $resmioBtnBGl );
 				update_option( 'resmio_btn_bg_dark', $resmioBtnBGd );
 			}

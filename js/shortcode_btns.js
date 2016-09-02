@@ -1,6 +1,6 @@
 (function() {
-    tinymce.PluginManager.add('custom_mce_button', function(editor, url) {
-        editor.addButton('custom_mce_button', {
+    tinymce.PluginManager.add('resmio_custom_mce_button', function(editor, url) {
+        editor.addButton('resmio_custom_mce_button', {
             type: 'menubutton',
             text: 'resmio',
             icon: false,
