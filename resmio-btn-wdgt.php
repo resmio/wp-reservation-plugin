@@ -40,44 +40,44 @@ if(!class_exists('resmio_btn_wdgt_plugin')) {
       $this->pluginPath = dirname(__FILE__);
       // Set Plugin URL
       $this->pluginUrl = WP_PLUGIN_URL . '/' . self::PLUGINDIRNAME;
-      add_action('admin_init', array(&$this, 'admin_init'));
-      add_action('admin_menu', array(&$this, 'add_menu'));
-      add_shortcode('resmio-button', array($this, 'shortcode'));
-      add_shortcode('resmio-widget', array($this, 'shortcode'));
+      add_action('admin_init', array(&$this, 'resmio_admin_init'));
+      add_action('admin_menu', array(&$this, 'resmio_add_menu'));
+      add_shortcode('resmio-button', array($this, 'resmio_shortcode'));
+      add_shortcode('resmio-widget', array($this, 'resmio_shortcode'));
       // Add shortcode support for widgets
       add_filter('widget_text', 'do_shortcode');
-      add_action( 'admin_enqueue_scripts', array( &$this, 'load_admin_cssjs' ) );
-      add_action( 'wp_enqueue_scripts', array( &$this, 'load_cssjs' ) );
+      add_action( 'admin_enqueue_scripts', array( &$this, 'resmio_load_admin_cssjs' ) );
+      add_action( 'wp_enqueue_scripts', array( &$this, 'resmio_load_cssjs' ) );
     } // END public function __construct
 
     /**
     * Activate the plugin
     */
-    public static function activate() {
+    public static function resmio_activate() {
       // Do nothing
-    } // END public static function activate
+    } // END public static function resmio_activate
 
     /**
     * Deactivate the plugin
     */
-    public static function deactivate() {
+    public static function resmio_deactivate() {
       // Do nothing
-    } // END public static function deactivate
+    } // END public static function resmio_deactivate
 
     /**
     * Hook into WP's admin_init action hook
     */
-    public function admin_init() {
+    public function resmio_admin_init() {
       load_plugin_textdomain( 'resmio_btn_wdgt_i18n', false, dirname( plugin_basename( __FILE__ ) ).'/languages/' );
       // Set up the settings for this plugin
-      $this->init_settings();
+      $this->resmio_init_settings();
       // Possibly do additional admin_init tasks
-    } // END public static function activate
+    } // END public static function resmio_activate
 
     /**
     * Initialize some custom settings
     */
-    public function init_settings() {
+    public function resmio_init_settings() {
       // register the settings for this plugin
       register_setting('resmio_btn_wdgt_plugin_group', 'resmio_id');
       register_setting('resmio_btn_wdgt_plugin_group', 'resmio_extended');
@@ -94,27 +94,27 @@ if(!class_exists('resmio_btn_wdgt_plugin')) {
     /**
     * Add a menu
     */
-    public function add_menu() {
-      //add_options_page('WP Plugin Template Settings', 'WP Plugin Template', 'manage_options', 'wp_plugin_template', array(&$this, 'plugin_settings_page'));
-      add_options_page(__('resmio button and widget settings', 'resmio_btn_wdgt_i18n'), __('resmio button and widget', 'resmio_btn_wdgt_i18n'), 'manage_options', 'resmio_btn_wdgt_page', array(&$this, 'plugin_settings_page'));
-    } // END public function add_menu()
+    public function resmio_add_menu() {
+      //add_options_page('WP Plugin Template Settings', 'WP Plugin Template', 'manage_options', 'wp_plugin_template', array(&$this, 'resmio_plugin_settings_page'));
+      add_options_page(__('resmio button and widget settings', 'resmio_btn_wdgt_i18n'), __('resmio button and widget', 'resmio_btn_wdgt_i18n'), 'manage_options', 'resmio_btn_wdgt_page', array(&$this, 'resmio_plugin_settings_page'));
+    } // END public function resmio_add_menu()
 
     /**
     * Menu callback
     */
-    public function plugin_settings_page() {
+    public function resmio_plugin_settings_page() {
       if(!current_user_can('manage_options')) {
         wp_die(__('You do not have permission to access this site.', 'resmio_btn_wdgt_i18n'));
       }
 
       // Render the settings template
       include(sprintf("%s/templates/settings.php", $this->pluginPath));
-    } // END public function plugin_settings_page()
+    } // END public function resmio_plugin_settings_page()
 
     /**
     * Shortcode callbacks
     */
-    public function shortcode($atts, $content = null, $tag) {
+    public function resmio_shortcode($atts, $content = null, $tag) {
       // Render the shortcode
       include(sprintf("%s/templates/shortcodes.php", $this->pluginPath));
       return $shortcode;
@@ -123,29 +123,29 @@ if(!class_exists('resmio_btn_wdgt_plugin')) {
     /**
     * Enqueue css and js files for backend
     */
-    public function load_admin_cssjs() {
+    public function resmio_load_admin_cssjs() {
       wp_enqueue_style('resmiocss', sprintf("%s/css/resmio_backend.css", $this->pluginUrl));
       wp_enqueue_script('validatejs', sprintf("%s/js/jquery.validate.min.js", $this->pluginUrl),'1.13.0', false );
       wp_enqueue_script('validateaddjs', sprintf("%s/js/additional-methods.min.js", $this->pluginUrl),'1.13.0', false );
       wp_enqueue_script('xcolorjs', sprintf("%s/js/jquery.xcolor.min.js", $this->pluginUrl), array('jquery'),'1.0', false );
       wp_enqueue_style( 'wp-color-picker' );
       wp_enqueue_script( 'wp-color-picker');
-    } // END public function load_admin_cssjs()
+    } // END public function resmio_load_admin_cssjs()
 
     /**
     * Enqueue css and js files for frontend
     */
-    public function load_cssjs() {
+    public function resmio_load_cssjs() {
       // stuff goes here
-    } // END public function load_admin_cssjs()
+    } // END public function resmio_load_admin_cssjs()
 
   } // END class resmio_btn_wdgt_plugin
 } // END if(!class_exists('resmio_btn_wdgt_plugin'))
 
 if(class_exists('resmio_btn_wdgt_plugin')) {
   // Installation and uninstallation hooks
-  register_activation_hook(__FILE__, array('resmio_btn_wdgt_plugin', 'activate'));
-  register_deactivation_hook(__FILE__, array('resmio_btn_wdgt_plugin', 'deactivate'));
+  register_activation_hook(__FILE__, array('resmio_btn_wdgt_plugin', 'resmio_activate'));
+  register_deactivation_hook(__FILE__, array('resmio_btn_wdgt_plugin', 'resmio_deactivate'));
 
   // instantiate the plugin class
   $resmio_btn_wdgt_plugin = new resmio_btn_wdgt_plugin();
@@ -153,19 +153,19 @@ if(class_exists('resmio_btn_wdgt_plugin')) {
   // Add a link to the settings page onto the plugin page
   if(isset($resmio_btn_wdgt_plugin)) {
     // Add the settings link to the plugins page
-    function plugin_settings_link($links) {
+    function resmio_plugin_settings_link($links) {
       $settings_link = '<a href="options-general.php?page=resmio_btn_wdgt_page">'.__('settings', 'resmio_btn_wdgt_i18n').'</a>';
       array_unshift($links, $settings_link);
       return $links;
     }
     $plugin = plugin_basename(__FILE__);
-    add_filter("plugin_action_links_$plugin", 'plugin_settings_link');
+    add_filter("plugin_action_links_$plugin", 'resmio_plugin_settings_link');
   }
 }
 
 
 // Function to alter the TinyMCE interface
-function custom_mce_button() {
+function resmio_custom_mce_button() {
   // Check if user have permission
   if ( !current_user_can( 'edit_posts' ) && !current_user_can( 'edit_pages' ) ) {
     return;
@@ -176,20 +176,20 @@ function custom_mce_button() {
   add_filter( 'mce_buttons', 'register_mce_button' );
   /*}*/
 }
-add_action('admin_head', 'custom_mce_button');
+add_action('admin_head', 'resmio_custom_mce_button');
 // Function for new button
 function custom_tinymce_plugin( $plugin_array ) {
-  $plugin_array['custom_mce_button'] = WP_PLUGIN_URL . '/resmio-button-and-widget/js/shortcode_btns.js';
+  $plugin_array['resmio_custom_mce_button'] = WP_PLUGIN_URL . '/resmio-button-and-widget/js/shortcode_btns.js';
   return $plugin_array;
 }
 // Register new button in the editor
 function register_mce_button( $buttons ) {
-  array_push( $buttons, 'custom_mce_button' );
+  array_push( $buttons, 'resmio_custom_mce_button' );
   return $buttons;
 }
 
 // Function to lighten or darken hex colors
-function adjustColorLightenDarken($color_code,$percentage_adjuster = 0) {
+function resmio_adjustColorLightenDarken($color_code,$percentage_adjuster = 0) {
   $percentage_adjuster = round($percentage_adjuster/100,2);
   if(is_array($color_code)) {
     $r = $color_code["r"] - (round($color_code["r"])*$percentage_adjuster);
