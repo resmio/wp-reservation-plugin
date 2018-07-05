@@ -1,0 +1,17 @@
+version: '2'
+services:
+  web:
+    image: wordpress
+    links:
+      - mysql
+    environment:
+      - WORDPRESS_DB_PASSWORD=password
+    ports:
+      - "8080:80"
+    volumes:
+        - ./:/var/www/html/wp-content/plugins/resmio-button-and-widget
+  mysql:
+    image: mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=wordpress
