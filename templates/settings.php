@@ -62,7 +62,7 @@ $resmioID = get_option('resmio_id');
     <form method="post" action="options.php">
         <?php
 	        @settings_fields('resmio_btn_wdgt_plugin_group');
-	        @do_settings_fields('resmio_btn_wdgt_plugin_group');
+	        @do_settings_fields('resmio_btn_wdgt_plugin_group', 'main');
 			$extendedSettings = get_option('resmio_extended');
 			if (isset($_GET['settings-updated'])) {
 				$resmioBtnBg = get_option('resmio_btn_bg');
