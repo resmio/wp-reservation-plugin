@@ -3,15 +3,15 @@
 Plugin Name: resmio button & widget
 Plugin URI: https://www.resmio.com/
 Description: Add a resmio button or widget to your website.
-Version: 1.2
-Date: 20th January 2015
-Author: Philipp Sahner
-Author URI: http://www.psahner.de/
+Version: 1.3
+Date: 6th July 2018
+Author: Resmio
+Author URI: https://resmio.com/
 License: GPL2
 Text Domain: resmio_btn_wdgt_i18n
 Domain Path: /languages/
 
-Copyright 2015 resmio GmbH / Philipp Sahner  (email : support@resmio.com / philipp@resmio.com)
+Copyright 2018 resmio GmbH (email : support@resmio.com)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License, version 2, as
