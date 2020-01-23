@@ -26,7 +26,7 @@ Instead of adding whole codesnippets for your resmio button/widget to your websi
    3.2) Use the menu button 'resmio' in the toolbar of your wysiwyg-editor (only in visual mode)
 
 = Compatibility =
-Tested on 4.0, 4.1, 4.4.2, 4.5.4, 4.6 and 4.9.6
+Tested on 4.0, 4.1, 4.4.2, 4.5.4, 4.6 and 5.3
 
 = Support =
 If you encounter any problem with this plugin please contact resmio GmbH via email -> support@resmio.com
