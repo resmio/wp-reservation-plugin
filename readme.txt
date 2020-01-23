@@ -1,8 +1,8 @@
 === Plugin Name ===
-Contributors: Philipp Sahner (resmio GmbH)
+Contributors: resmio GmbH
 Tags: shortcode, resmio, usability, button, widget, reservation, online, restaurant
 Requires at least: unknown
-Tested up to: 4.9
+Tested up to: 5.3
 Stable tag: 1.3
 Add a resmio button or widget to your website.
 

@@ -16,6 +16,7 @@ Afterwards visit http://localhost:8080
 1) Checkout the existing version from wordpress
 
     mkdir resmio-button-and-widget
+    
     svn co https://plugins.svn.wordpress.org/resmio-button-and-widget resmio-button-and-widget
 
 2) Adjust whatever you want in `trunk`
