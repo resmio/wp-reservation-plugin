@@ -3,11 +3,11 @@ Contributors: resmio GmbH
 Tags: shortcode, resmio, usability, button, widget, reservation, online, restaurant
 Requires at least: unknown
 Tested up to: 5.3
-Stable tag: 1.3
+Stable tag: 1.3.0
 Add a resmio button or widget to your website.
 
 == Description ==
-resmio provides you with an online reservation system software for your restaurant that allows you to manage all reservations received in your restaurant quickly and easily. In order to recieve reservations from your website you have to integrate the codesnippet provided by resmio either for the widget itself or for a reservation button (which then loads the widget).
+Resmio provides you with an online reservation system software for your restaurant that allows you to manage all reservations received in your restaurant quickly and easily. In order to recieve reservations from your website you have to integrate the codesnippet provided by resmio either for the widget itself or for a reservation button (which then loads the widget).
 With this plugin you do not have to manually add these codesnippets to your site. Instead you can type shortcodes directly into the wysiwyg-editor and or insert the shortcodes through a menu button in the toolbar of the TinyMCE editor (only in visual mode).
 The shortcodes are:
 [resmio-button] -> for the resmio button
@@ -47,7 +47,7 @@ Alternatively, you can install the plugin manually through the WordPress Admin i
 
 == Changelog ==
 
-= 1.3 (05 Juli 2018) =
+= 1.3.0 (05 Juli 2018) =
 * Fixing incompatibility with Wordpress 4.9
 = 1.2 (08 September 2016) =
 * Added prefix to plugin functions

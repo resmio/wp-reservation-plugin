@@ -1,0 +1,101 @@
+name: Copy and Deploy
+on:
+  push:
+    branches:
+      - deploy-to-production
+
+jobs:
+  build:
+    name: Copy and push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code from github
+        uses: actions/checkout@v2
+        with:
+          path: plugin-code-from-github
+
+      - name: Prepare code from github to get copied to svn
+        run: |
+          cd plugin-code-from-github &&
+          rm -rfv .git .github .gitignore docker-compose.yml README.md assets
+
+      - name: Get tag version
+        run: |
+          cd plugin-code-from-github &&
+          export TAG_VERSION=$(grep "Stable tag" readme.txt | awk '{print $3}') &&
+          echo "::set-env name=TAG_VERSION::$TAG_VERSION"
+
+      - name: Check tag version is valid
+        run: |
+          echo "Tag version should look like: X.Y.Z (1.3.0, 1.5.1, etc.)"
+          echo "Tag version is: $TAG_VERSION"
+          [[ "$TAG_VERSION" =~ ^[0-9]{1,2}.[0-9]{1,2}.[0-9]{1,2}$ ]]
+
+      - name: Checkout code from the svn
+        run: svn co https://plugins.svn.wordpress.org/resmio-button-and-widget plugin-code-from-svn
+
+      - name: Remove code from svn trunk
+        run: |
+          cd plugin-code-from-svn &&
+          rm -rf trunk
+
+      - name: Copy code from github to trunk
+        run: |
+          cp -R plugin-code-from-github plugin-code-from-svn/trunk
+
+      - name: Print structure of the svn trunk directory
+        run: |
+          echo "Print structure of trunk directory"
+          cd plugin-code-from-svn &&
+          find trunk -name "*"
+
+      - name: Add trunk to svn
+        run: |
+          cd plugin-code-from-svn &&
+          svn add --force trunk --auto-props --parents --depth infinity -q
+
+      - name: Delete files removed from git
+        run:
+          cd plugin-code-from-svn ||
+          svn st | grep ^! | awk '{print " --force "$2}' | xargs svn rm
+
+      - name: Commit code from trunk
+        run: |
+          cd plugin-code-from-svn &&
+          svn ci -m "Update plugin to version $TAG_VERSION" --username $SVN_USERNAME --password $SVN_PASSWORD
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+
+      - name: Check directory tags/$TAG_VERSION does not exist
+        run: |
+          echo "Check tags/$TAG_VERSION directory does not exist..."
+          [ ! -d plugin-code-from-svn/tags/$TAG_VERSION ] &&
+          echo "Directory tags/$TAG_VERSION does not exist. New one can be created."
+
+      - name: Make a copy from trunk to the new tag
+        run: |
+          cd plugin-code-from-svn &&
+          svn cp trunk tags/$TAG_VERSION
+
+      - name: Print structure of the new tag directory
+        run: |
+          echo "Print structure of the new tag directory (tags/$TAG_VERSION)"
+          cd plugin-code-from-svn &&
+          find tags/$TAG_VERSION -name "*"
+
+      - name: Commit new tag
+        run: |
+          cd plugin-code-from-svn &&
+          svn ci -m "Add new tag v-$TAG_VERSION" --username $SVN_USERNAME --password $SVN_PASSWORD
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+
+      - name: Send slack notification
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+            --data "{'text': ':white_check_mark: SUCCESS: WordPress reservation plugin version $TAG_VERSION has been deployed!'}" \
+            $SLACK_WEBHOOK_DEV_CHANNEL
+        env:
+          SLACK_WEBHOOK_DEV_CHANNEL: ${{ secrets.SLACK_WEBHOOK_DEV_CHANNEL }}
