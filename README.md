@@ -12,25 +12,34 @@ Afterwards visit http://localhost:8080
 
 ## Auto release (new way)
 
-1) Checkout the master branch
+1) Checkout your feature(bugfix) branch
 ```bash
-git checkout master
+git checkout feature-branch
 ```
 
-2) Pull the latest changes
+2) Delete local copy of the deploy-to-production branch
 ```bash
-git pull
+git branch -d deploy-to-production
 ```
 
-3) Checkout the existing deploy-to-production branch
+3) Create new local deploy-to-production branch from the feature branch
 ```bash
-git checkout deploy-to-production
+git checkout -b deploy-to-production
 ```
 
-4) Merge Master
+4) Push new deploy-to-production branch
 ```bash
-git merge master
+git push --set-upstream origin deploy-to-production -f
 ```
+
+Push event on `deploy-to-production` branch will trigger github action and:
+
+ - code is checked out from github (with new feature for the plugin)
+ - code is checked out from svn (current release system of wordpress)
+ - old code from trunk is replaced with the new one from github
+ - new tag version is taken from readme.txt (line with => Stable tag: X.Y.Z)
+ - new tag is created
+ - all code is pushed to svn
 
 
 ## Manual release (old way)
