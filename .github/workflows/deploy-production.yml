@@ -1,5 +1,8 @@
 name: Copy and Deploy
-on: push
+on:
+  push:
+    branches:
+      - deploy-to-production
 
 jobs:
   build:
@@ -51,6 +54,11 @@ jobs:
           cd plugin-code-from-svn &&
           svn add --force trunk --auto-props --parents --depth infinity -q
 
+      - name: Delete files removed from git
+        run:
+          cd plugin-code-from-svn ||
+          svn st | grep ^! | awk '{print " --force "$2}' | xargs svn rm
+
       - name: Commit code from trunk
         run: |
           cd plugin-code-from-svn &&
@@ -90,5 +98,4 @@ jobs:
             --data "{'text': ':white_check_mark: SUCCESS: WordPress reservation plugin version $TAG_VERSION has been deployed!'}" \
             $SLACK_WEBHOOK_DEV_CHANNEL
         env:
-          SLACK_WEBHOOK_DEV_CHANNEL: ${{ secrets.SLACK_WEBHOOK_TEST_CHANNEL }}
-#          SLACK_WEBHOOK_DEV_CHANNEL: ${{ secrets.SLACK_WEBHOOK_DEV_CHANNEL }}
+          SLACK_WEBHOOK_DEV_CHANNEL: ${{ secrets.SLACK_WEBHOOK_DEV_CHANNEL }}

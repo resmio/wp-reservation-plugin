@@ -10,14 +10,37 @@ To create a development environment use
     
 Afterwards visit http://localhost:8080
 
+## Auto release (new way)
 
-## Release new Version
+1) Checkout the master branch
+```bash
+git checkout master
+```
+
+2) Pull the latest changes
+```bash
+git pull
+```
+
+3) Checkout the existing deploy-to-production branch
+```bash
+git checkout deploy-to-production
+```
+
+4) Merge Master
+```bash
+git merge master
+```
+
+
+## Manual release (old way)
 
 1) Checkout the existing version from wordpress
-
+    ```bash
     mkdir resmio-button-and-widget
     
     svn co https://plugins.svn.wordpress.org/resmio-button-and-widget resmio-button-and-widget
+    ```
 
 2) Adjust whatever you want in `trunk`
 
@@ -26,8 +49,10 @@ Afterwards visit http://localhost:8080
 4) Copy everything from trunk to that new version directory
 
 5) Commit and push everything to svn
-
+```bash
 svn ci -m 'Some Message' --username Philipp-resmio --password PasswordFromLastPass
+```
+
 
 
 
