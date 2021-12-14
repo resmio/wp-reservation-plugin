@@ -2,8 +2,8 @@
 Contributors: resmio GmbH
 Tags: shortcode, resmio, usability, button, widget, reservation, online, restaurant
 Requires at least: unknown
-Tested up to: 5.4
-Stable tag: 1.3.1
+Tested up to: 5.8.2
+Stable tag: 1.3.2
 Add a resmio button or widget to your website.
 
 == Description ==
@@ -26,7 +26,7 @@ Instead of adding whole codesnippets for your resmio button/widget to your websi
    3.2) Use the menu button 'resmio' in the toolbar of your wysiwyg-editor (only in visual mode)
 
 = Compatibility =
-Tested on 4.0, 4.1, 4.4.2, 4.5.4, 4.6, 5.3 and 5.4
+Tested on 4.0, 4.1, 4.4.2, 4.5.4, 4.6, 5.3, 5.4, 5.6.1 and 5.8.2
 
 = Support =
 If you encounter any problem with this plugin please contact resmio GmbH via email -> support@resmio.com
