@@ -20,16 +20,19 @@ jobs:
           rm -rfv .git .github .gitignore docker-compose.yml README.md assets
 
       - name: Get tag version
+        id: tag_version
         run: |
           cd plugin-code-from-github &&
           export TAG_VERSION=$(grep "Stable tag" readme.txt | awk '{print $3}') &&
-          echo "::set-env name=TAG_VERSION::$TAG_VERSION"
+          echo ::set-output name=tag_version::$TAG_VERSION
+          echo "TAG_VERSION=${{ steps.tag_version.outputs.tag_version }}"
+
 
       - name: Check tag version is valid
         run: |
           echo "Tag version should look like: X.Y.Z (1.3.0, 1.5.1, etc.)"
-          echo "Tag version is: $TAG_VERSION"
-          [[ "$TAG_VERSION" =~ ^[0-9]{1,2}.[0-9]{1,2}.[0-9]{1,2}$ ]]
+          echo "Tag version is: ${{ steps.tag_version.outputs.tag_version }}"
+          [[ "${{ steps.tag_version.outputs.tag_version }}" =~ ^[0-9]{1,2}.[0-9]{1,2}.[0-9]{1,2}$ ]]
 
       - name: Checkout code from the svn
         run: svn co https://plugins.svn.wordpress.org/resmio-button-and-widget plugin-code-from-svn
@@ -62,32 +65,32 @@ jobs:
       - name: Commit code from trunk
         run: |
           cd plugin-code-from-svn &&
-          svn ci -m "Update plugin to version $TAG_VERSION" --username $SVN_USERNAME --password $SVN_PASSWORD
+          svn ci -m "Update plugin to version ${{ steps.tag_version.outputs.tag_version }}" --username $SVN_USERNAME --password $SVN_PASSWORD
         env:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
 
-      - name: Check directory tags/$TAG_VERSION does not exist
+      - name: Check directory tags/${{ steps.tag_version.outputs.tag_version }} does not exist
         run: |
-          echo "Check tags/$TAG_VERSION directory does not exist..."
-          [ ! -d plugin-code-from-svn/tags/$TAG_VERSION ] &&
-          echo "Directory tags/$TAG_VERSION does not exist. New one can be created."
+          echo "Check tags/${{ steps.tag_version.outputs.tag_version }} directory does not exist..."
+          [ ! -d plugin-code-from-svn/tags/${{ steps.tag_version.outputs.tag_version }} ] &&
+          echo "Directory tags/${{ steps.tag_version.outputs.tag_version }} does not exist. New one can be created."
 
       - name: Make a copy from trunk to the new tag
         run: |
           cd plugin-code-from-svn &&
-          svn cp trunk tags/$TAG_VERSION
+          svn cp trunk tags/${{ steps.tag_version.outputs.tag_version }}
 
       - name: Print structure of the new tag directory
         run: |
           echo "Print structure of the new tag directory (tags/$TAG_VERSION)"
           cd plugin-code-from-svn &&
-          find tags/$TAG_VERSION -name "*"
+          find tags/${{ steps.tag_version.outputs.tag_version }} -name "*"
 
       - name: Commit new tag
         run: |
           cd plugin-code-from-svn &&
-          svn ci -m "Add new tag v-$TAG_VERSION" --username $SVN_USERNAME --password $SVN_PASSWORD
+          svn ci -m "Add new tag v-${{ steps.tag_version.outputs.tag_version }}" --username $SVN_USERNAME --password $SVN_PASSWORD
         env:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
@@ -95,7 +98,7 @@ jobs:
       - name: Send slack notification
         run: |
           curl -X POST -H 'Content-type: application/json' \
-            --data "{'text': ':white_check_mark: SUCCESS: WordPress reservation plugin version $TAG_VERSION has been deployed!'}" \
+            --data "{'text': ':white_check_mark: SUCCESS: WordPress reservation plugin version ${{ steps.tag_version.outputs.tag_version }} has been deployed!'}" \
             $SLACK_WEBHOOK_DEV_CHANNEL
         env:
           SLACK_WEBHOOK_DEV_CHANNEL: ${{ secrets.SLACK_WEBHOOK_DEV_CHANNEL }}
